@@ -32,6 +32,7 @@ class strongswan::config (
   $ipsec_options     = {},
   $charon_options    = {},
   $conn_conf_path    = $strongswan::env::conn_conf_path,
+  $charon_conf_path  = $strongswan::env::charon_conf_path,
   $secrets_conf_path = $strongswan::env::secrets_conf_path,
 ) inherits strongswan::env {
   validate_hash($ipsec_options, $charon_options)
@@ -107,7 +108,7 @@ class strongswan::config (
   # Merge the supplied charon configuration options and generate the charon
   # config file
   $_charon_options = merge($strongswan::env::charon_options, $charon_options)
-  file { '/etc/strongswan.d/charon.conf':
+  file { $charon_conf_path:
     ensure  => file,
     owner   => 'root',
     group   => 'root',

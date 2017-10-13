@@ -25,6 +25,7 @@ class strongswan::env {
   # Where do we store all of the custom connection configs?
   $conn_conf_path    = '/etc/ipsec.d/conns'
   $secrets_conf_path = '/etc/ipsec.d/secrets'
+  $charon_conf_path  = '/etc/strongswan.d/charon.conf'
 
   # Global Configuration Settings. These simply match the defaults for
   # Strongswan to begin with.
