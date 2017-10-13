@@ -55,6 +55,7 @@
 class strongswan (
   $charon_options     = {},
   $conn_conf_path     = $strongswan::env::conn_conf_path,
+  $charon_conf_path   = $strongswan::env::charon_conf_path,
   $ipsec_options      = {},
   $secrets_conf_path  = $strongswan::env::secrets_conf_path,
   $service_name       = $strongswan::env::service_name,
@@ -78,6 +79,7 @@ class strongswan (
     ipsec_options     => $ipsec_options,
     charon_options    => $charon_options,
     conn_conf_path    => $conn_conf_path,
+    charon_conf_path  => $charon_conf_path,
     secrets_conf_path => $secrets_conf_path,
     require           => Class['strongswan::install'];
   }
